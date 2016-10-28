@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  </head>
+  <body style="padding:50px;">
+    <% include partials/_header %>
+    <h2>ShortURL: <strong><%= shortURL %></strong></h2>
+    <h3>Visits: <strong><%= urlData.visits %></strong></h2>
+    <h3>Unique Visits: <strong><%= urlData.uniques %></strong></h2>
+    <h3>Date Created: <strong><%= urlData.dateCreated %></strong></h2>
+    <form method="POST" action="/urls/<%= shortURL %>?_method=PUT" class="form-inline">
+      <input type="text" name="longURL" value="<%= urlData.longURL %>" style="width:300px; font-size:1.35em;" class="form-control">
+      <button class="btn btn-default">Update</button>
+    </form>
+  </body>
+</html>

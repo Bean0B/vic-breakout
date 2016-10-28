@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  </head>
+  <body style="padding:40px;">
+    <% include partials/_header %>
+    <a href="/urls/new">New Short URL</a>
+    <table>
+      <% for (var shortURL in urls) { %>
+        <tr style="height:50px;">
+          <td><%= shortURL %></td>
+          <td> &rarr; <a href="<%= urls[shortURL] %>"><%= urls[shortURL] %></a></td>
+          <td style="padding-left:20px;"><a href="/urls/<%= shortURL %>">Edit<a></td>
+          <td style="padding-left:20px;">
+            <a href="/urls/<%= shortURL %>">Delete</a>
+            <!-- <form action="/urls/<%= shortURL %>?_method=DELETE" method="POST">
+              <button class="btn btn-default">Delete &#128465;</button>
+            </form> -->
+          </td>
+        </tr>
+      <% } %>
+    </table>
+  </body>
+</html>
